@@ -34,7 +34,7 @@ class ExpenseTracker:
 
 
     def monthly_report(self, month: int, year: int) -> str:
-        report = f"Monthly Report for {month}/{year}\n\n"
+        report = f"\nMonthly Report for {month}/{year}\n\n"
         monthly_expenses = self.log.filter_by_month(month, year)
         category_totals = {}
 
@@ -44,7 +44,7 @@ class ExpenseTracker:
             category_totals[expense.category] += expense.amount
 
         for category, total in category_totals.items():
-            report += f"Category: {category}\tTotal Spent: {format_money(total)}\n"
+            report += f"Category: {category}\nTotal Spent: {format_money(total)}\n"
 
         report += f"\nTotal Expenses: {format_money(sum(expense.amount for expense in monthly_expenses))}\n"
 
